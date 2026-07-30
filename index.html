@@ -94,44 +94,37 @@
     align-items:center;
     gap:10px;
   }
-  .brand-icon-animated{
+  .brand-mark{
     display:flex;
     align-items:center;
-    justify-content:center;
+    background:var(--black-soft);
+    border:1px solid rgba(245,245,245,0.1);
+    border-radius:999px;
+    padding:6px 14px 6px 16px;
+    gap:2px;
   }
-  .eye-logo{
-    width:26px;
-    height:26px;
-    stroke: var(--orange);
-    animation: eyeBlink 3s infinite;
-    transform-origin: 50% 50%;
-  }
-  .brand-text{
+  .brand-mark .b-letter{
     font-family:var(--font-head);
     font-weight:800;
-    font-size:22px;
-    letter-spacing:-0.02em;
+    font-size:20px;
     color:var(--white);
-    display:flex;
+    line-height:1;
+    animation: letterBlink 1.5s infinite;
   }
-  .text-blink{
-    animation: textBlink 1.5s infinite;
+  @keyframes letterBlink {
+    0%, 90%, 100% { opacity: 1; }
+    92% { opacity: 0.2; }
+    94% { opacity: 1; }
+    96% { opacity: 0.2; }
+    98% { opacity: 1; }
   }
-  .text-drop{
-    color: var(--orange);
-  }
-
-  @keyframes eyeBlink {
-    0%, 90%, 100% { transform: scaleY(1); }
-    93% { transform: scaleY(0.1); }
-    96% { transform: scaleY(1); }
-  }
-  @keyframes textBlink {
-    0%, 90%, 100% { opacity: 1; text-shadow: 0 0 12px rgba(255,255,255,0.2); }
-    92% { opacity: 0.3; text-shadow: none; }
-    94% { opacity: 1; text-shadow: 0 0 12px rgba(255,255,255,0.5); }
-    96% { opacity: 0.3; text-shadow: none; }
-    98% { opacity: 1; text-shadow: 0 0 12px rgba(255,255,255,0.2); }
+  .brand-mark svg{ width:18px; height:22px; margin-left:2px; }
+  .brand-name{
+    font-family:var(--font-head);
+    font-weight:700;
+    font-size:17px;
+    letter-spacing:-0.01em;
+    color:var(--white);
   }
 
   main{
@@ -390,15 +383,11 @@
 
   <header>
     <div class="brand">
-      <div class="brand-text">
-        <span class="text-blink">Blink</span><span class="text-drop">Drop</span>
+      <div class="brand-mark">
+        <span class="b-letter">B</span>
+        <svg viewBox="0 0 24 30" fill="none"><path d="M12 0C5.4 0 0 5.4 0 12c0 9 12 18 12 18s12-9 12-18C24 5.4 18.6 0 12 0z" fill="#FF6B35"/><circle cx="12" cy="12" r="5" fill="#111827"/></svg>
       </div>
-      <div class="brand-icon-animated">
-        <svg class="eye-logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
-          <circle cx="12" cy="12" r="3"></circle>
-        </svg>
-      </div>
+      <span class="brand-name">BlinkDrop</span>
     </div>
   </header>
 
